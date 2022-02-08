@@ -1,0 +1,118 @@
+{
+  "listStudents": [
+    {
+      "username": "pheonv",
+      "password": "iloveyou",
+      "fullname": "Nguyễn Văn Chí Phèo",
+      "email": "pheonv@fpt.edu.vn",
+      "gender": "true",
+      "birthday": "1985-10-11",
+      "schoolfee": "2500000",
+      "marks": "0",
+      "id": 2
+    },
+    {
+      "username": "nopt",
+      "password": "iloveyou",
+      "fullname": "Phạm Thị Nở",
+      "email": "nopt@fpt.edu.vn",
+      "gender": "false",
+      "birthday": "1993-05-15",
+      "schoolfee": "2000000",
+      "marks": "0",
+      "id": 3
+    },
+    {
+      "username": "teonv123",
+      "password": "123456",
+      "fullname": "Phạm Quang Vũ",
+      "email": "phamvu6.3.2k1@gmail.com",
+      "gender": "true",
+      "birthday": "2001-12-12",
+      "schoolfee": 2000000,
+      "marks": "0",
+      "id": 4
+    },
+    {
+      "username": "nhatlinh99",
+      "password": "123456",
+      "fullname": "Phạm Quang Vũ",
+      "email": "phamvu6.3.2k1@gmail.com",
+      "gender": "true",
+      "birthday": "2001-12-12",
+      "schoolfee": 2000000,
+      "marks": "0",
+      "id": 5
+    },
+    {
+      "username": "trinh123",
+      "password": "123456",
+      "fullname": "ngoc trinh",
+      "email": "phamvu6.3.2k1@gmail.com",
+      "gender": "false",
+      "birthday": "2001-12-12",
+      "schoolfee": 2000000,
+      "marks": "0",
+      "id": 6
+    },
+    {
+      "id": 8,
+      "username": "vupq123",
+      "password": "123456",
+      "fullname": "Phạm Quang Vũ",
+      "email": "phamvu6.3.2k1@gmail.com",
+      "gender": "true",
+      "birthday": "2001-12-12",
+      "schoolfee": 2000000,
+      "marks": "0"
+    },
+    {
+      "username": "nhatlinh999",
+      "password": "123456",
+      "fullname": "Phạm Quang Vũ",
+      "email": "phamvu6.3.2k1@gmail.com",
+      "gender": "true",
+      "birthday": "2001-12-12",
+      "schoolfee": 2000000,
+      "marks": "0",
+      "id": 9
+    }
+  ],
+  "listKQ": [
+    {
+      "username": "vupq123",
+      "fullname": "Phạm Quang Vu",
+      "name": "Lập trình Android nâng cao",
+      "score": 0,
+      "id": 1
+    },
+    {
+      "username": "vupq123",
+      "fullname": "Phạm Quang",
+      "name": "Cơ sở dữ liệu",
+      "score": 1,
+      "id": 2
+    },
+    {
+      "username": "vupq123",
+      "fullname": "Phạm Quang Vũ",
+      "name": "Lập trình Android nâng cao",
+      "score": 0,
+      "id": 3
+    },
+    {
+      "username": "vupq123",
+      "fullname": "Phạm Quang Vũ",
+      "name": "HTML5 và CSS3",
+      "score": 2,
+      "id": 4
+    },
+    {
+      "username": "vupq123",
+      "fullname": "Phạm Quang Vũ",
+      "name": "Internet Marketing",
+      "score": 2,
+      "id": 5
+    }
+  ]
+}

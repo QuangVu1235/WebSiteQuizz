@@ -1,0 +1,200 @@
+<style>
+    body {
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+    }
+</style>
+<div class="container-fluid" ng-show="!hide">
+
+    <div class="row">
+        <div class="col-sm-12" style="text-align: center; margin-top: 200px" ng-show="!inProgess">
+            <button class="btn btn-primary" ng-click="start()">
+                Bắt đầu bài kiểm tra
+            </button>
+        </div>
+    </div>
+    <br />
+    <div ng-show="inProgess" class="row-sm">
+        <h3 style="text-align: justify">
+            Thời gian làm test
+            <span id="time">{{timer.minutes}}:{{timer.seconds}}</span> minutes!
+        </h3>
+        <div class="row">
+            <div class="col-sm-12">
+                <h4 class="h3-responsive text-center font-weight-bold dark-grey-text">
+                    Bài thi: {{sjname}}
+                </h4>
+                <hr />
+            </div>
+            <div class="col-sm-10">
+                <label for="" style="font-weight: 700; color: rgba(0, 0, 255, 0.877)">Câu {{id}}:
+                    {{question}}</label>
+
+                <hr />
+                <form>
+                    <div style="font-size: 1.1rem" class="form-check" ng-repeat="option in options">
+                        <input class="form-check-input" type="radio" name="answer" value="{{option.Id}}">
+                        <label class="form-check-label" for="answer">{{option.Text}}</label>
+                    </div>
+                </form>
+            </div>
+            <div class="col-sm-2">
+                <div class="panel panel-heading">
+                    <p>Câu hỏi {{id}}/10</p>
+                </div>
+            </div>
+            <hr />
+            <div class="col-lg-6">
+                <button ng-hide="!answerMode" ng-click="checkAnswer();" type="button" class="btn btn-primary">
+                    Trả lời
+                </button>
+                <div class="col-lg-6">
+                    <button ng-hide="answerMode" ng-click="nextQuestion()" class="btn btn-info">
+                        Next&raquo;
+                    </button>
+                </div>
+
+            </div>
+
+        </div>
+
+        <label>Điểm: {{score}}/{{10}}</label>
+    </div>
+    <div ng-show="inProgess">
+        <div class="rown-sm" style="text-align: center">
+            <button class="btn btn-danger" ng-click="end()">
+                Kết thúc bài kiểm tra
+            </button>
+        </div>
+    </div>
+    <br />
+</div>
+
+<!-- showQuestion -->
+<div class="container" ng-show="hide" style="width: 80% ;">
+    <div class="row">
+        <div class="col-sm-12" style="text-align: center; margin-top: 200px" ng-show="!inProgess">
+            <button class="btn btn-primary" ng-click="start()"></button>
+        </div>
+    </div>
+    <br />
+    <div ng-show="inProgess" class="row-sm">
+        <h3 class="text-center">Danh sách kết quả</h3>
+        <hr />
+        <h5>Điển của bạn: {{score}}/{{10}}</h5>
+        <hr>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="panel-body" style="font-size: large; ">
+                    <div style="{{(optionsmoi[0].Text == dapan[0].Text)?'':' border: 1px solid red'}}">
+                        <h5>Câu 1: {{Idques[0].Text}}</h5>
+                        <div style="font-size: 1.1rem" class="form-check" ng-repeat="option in Idques[0].Answers">
+                            <input disabled type="radio" name="answer" value="{{option.Id}}" />
+                            <label for="answer">{{option.Text}}</label>
+                        </div>
+                        <p>Đáp án bạn chọn: {{optionsmoi[0].Text}}</p>
+                        <p>Đáp án đúng: {{dapan[0].Text}}</p>
+                    </div>
+
+                    <div style="{{(optionsmoi[1].Text == dapan[1].Text)?'':' border: 1px solid red'}}">
+                        <h5>Câu 2: {{Idques[1].Text}}</h5>
+                        <div style="font-size: 1.1rem" class="form-check" ng-repeat="option in Idques[1].Answers">
+                            <input disabled type="radio" name="answer" value="{{option.Id}}" />
+                            <label for="answer">{{option.Text}}</label>
+                        </div>
+                        <p>Đáp an bạn chọn là: {{optionsmoi[1].Text}}</p>
+                        <p>Đáp án đúng: {{dapan[1].Text}}</p>
+                    </div>
+                    <div style="{{(optionsmoi[2].Text == dapan[2].Text)?'':' border: 1px solid red'}}">
+                        <h5>Câu 3: {{Idques[2].Text}}</h5>
+                        <div style="font-size: 1.1rem" class="form-check" ng-repeat="option in Idques[2].Answers">
+                            <input disabled type="radio" name="answer" value="{{option.Id}}" />
+                            <label for="answer">{{option.Text}}</label>
+                        </div>
+                        <p>Đáp an bạn chọn là: {{optionsmoi[2].Text}}</p>
+                        <p>Đáp án đúng: {{dapan[2].Text}}</p>
+                    </div>
+                    <div style="{{(optionsmoi[3].Text == dapan[3].Text)?'':' border: 1px solid red'}}">
+                        <h5>Câu 4: {{Idques[3].Text}}</h5>
+                        <div style="font-size: 1.1rem" class="form-check" ng-repeat="option in Idques[3].Answers">
+                            <input disabled type="radio" name="answer" value="{{option.Id}}" />
+                            <label for="answer">{{option.Text}}</label>
+                        </div>
+                        <p>Đáp an bạn chọn là: {{optionsmoi[3].Text}}</p>
+                        <p>Đáp án đúng: {{dapan[3].Text}}</p>
+                    </div>
+                    <div style="{{(optionsmoi[4].Text == dapan[4].Text)?'':' border: 1px solid red'}}">
+                        <h5>Câu 5: {{ Idques[4].Text}}</h5>
+                        <div style="font-size: 1.1rem" class="form-check" ng-repeat="option in Idques[4].Answers">
+                            <input disabled type="radio" name="answer" value="{{option.Id}}" />
+                            <label for="answer">{{option.Text}}</label>
+                        </div>
+                        <p>Đáp an bạn chọn là: {{optionsmoi[4].Text}}</p>
+                        <p>Đáp án đúng: {{dapan[4].Text}}</p>
+                    </div>
+                    <div style="{{(optionsmoi[5].Text == dapan[5].Text)?'':' border: 1px solid red'}}">
+                        <h5>Câu 6: {{ Idques[5].Text}}</h5>
+                        <div style="font-size: 1.1rem" class="form-check" ng-repeat="option in Idques[5].Answers">
+                            <input disabled type="radio" name="answer" value="{{option.Id}}" />
+                            <label for="answer">{{option.Text}}</label>
+                        </div>
+                        <p>Đáp an bạn chọn là: {{optionsmoi[5].Text}}</p>
+                        <p>Đáp án đúng: {{dapan[5].Text}}</p>
+                    </div>
+                    <div style="{{(optionsmoi[6].Text == dapan[6].Text)?'':' border: 1px solid red'}}">
+                        <h5>Câu 7: {{ Idques[6].Text}}</h5>
+                        <div style="font-size: 1.1rem" class="form-check" ng-repeat="option in Idques[6].Answers">
+                            <input disabled type="radio" name="answer" value="{{option.Id}}" />
+                            <label for="answer">{{option.Text}}</label>
+                        </div>
+                        <p>Đáp an bạn chọn là: {{optionsmoi[6].Text}}</p>
+                        <p>Đáp án đúng: {{dapan[6].Text}}</p>
+                    </div>
+                    <div style="{{(optionsmoi[7].Text == dapan[7].Text)?'':' border: 1px solid red'}}">
+                        <h5>Câu 8: {{ Idques[7].Text}}</h5>
+                        <div style="font-size: 1.1rem" class="form-check" ng-repeat="option in Idques[7].Answers">
+                            <input disabled type="radio" name="answer" value="{{option.Id}}" />
+                            <label for="answer">{{option.Text}}</label>
+                        </div>
+                        <p>Đáp an bạn chọn là: {{optionsmoi[7].Text}}</p>
+                        <p>Đáp án đúng: {{dapan[7].Text}}</p>
+                    </div>
+                    <div style="{{(optionsmoi[8].Text == dapan[8].Text)?'':' border: 1px solid red'}}">
+                        <h5>Câu 9: {{ Idques[8].Text}}</h5>
+                        <div style="font-size: 1.1rem" class="form-check" ng-repeat="option in Idques[8].Answers">
+                            <input disabled type="radio" name="answer" value="{{option.Id}}" />
+                            <label for="answer">{{option.Text}}</label>
+                        </div>
+                        <p>Đáp an bạn chọn là: {{optionsmoi[8].Text}}</p>
+                        <p>Đáp án đúng: {{dapan[8].Text}}</p>
+                    </div>
+                    <div style="{{(optionsmoi[9].Text == dapan[9].Text)?'':' border: 1px solid red'}}">
+                        <h5>Câu 10: {{ Idques[9].Text}}</h5>
+                        <div style="font-size: 1.1rem" class="form-check" ng-repeat="option in Idques[9].Answers">
+                            <input disabled type="radio" name="answer" value="{{option.Id}}" />
+                            <label for="answer">{{option.Text}}</label>
+                        </div>
+                        <p>Đáp an bạn chọn là: {{optionsmoi[9].Text}}</p>
+                        <p>Đáp án đúng: {{dapan[9].Text}}</p>
+                    </div>
+
+                </div>
+            </div>
+            <hr />
+            <div class="col-lg-10">
+
+
+            </div>
+            <div class="col-lg-2">
+                <button ng-click="SaveAnswer();" type="button" class="btn btn-primary">
+                    Lưu kết quả
+                </button>
+
+            </div>
+
+
+        </div>
+    </div>
+</div>

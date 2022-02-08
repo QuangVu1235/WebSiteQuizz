@@ -1,0 +1,36 @@
+<style>
+  body {
+
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+  }
+</style>
+<section style="padding: 20px  50px  10px  50px;display: block; background-color: rgba(255, 255, 255, 0.76);"  class="dark-grey-text text-center  rgba-white-strong">
+  <!-- Grid row -->
+  <div  class="row"  >
+      <!-- data-aos="flip-up" -->
+      <div  ng-repeat="sj in subjects | orderBy:'Name'  | limitTo:6:cout" class="col-md-4 subject-item col zoom animate__animated animate__zoomIn animate__faster" >
+
+          <div class="view overlay rounded z-depth-1 d-flex justify-content-center white">
+              <img  src="assets/img/logos/{{sj.Logo}}" class="img-fluid w-30" alt="Sample project image">
+          </div>
+
+          <div class="px-3 pt-3 mx-1 mt-1 pb-0">
+              <h6 class="text-uppercase" style="color: black">{{sj.Name | uppercase}} | Bài thi gồm 10 câu hỏi</h6>
+              <a href="#!viewtest/{{sj.Id}}" class="btn btn-success btn-rounded btn-md mb-5"> Chi tiết</a>
+          </div>
+
+      </div>
+     
+     
+      <div>
+          <button ng-click="prev()" class="btn btn-primary"><i class="fas fa-chevron-circle-left"></i></button>
+          <button ng-click="next()" class="btn btn-primary"><i class="fas fa-chevron-circle-right"></i></button>
+      </div>
+  </div>
+
+  
+  <!-- Grid row -->
+</section>

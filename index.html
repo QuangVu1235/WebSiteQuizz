@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <link rel="shortcut icon" href="assets/img/favicon.ico">
+  <title>Online Traning</title>
+  <!-- AOS -->
+  <link href="css/styles.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+  <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
+  <style>
+    body {
+      background-image: url(assets/img/H2tz.gif);
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-attachment: fixed;
+    }
+  </style>
+</head>
+
+<body class="sb-nav-fixed" ng-app="myApp">
+  <nav style="background-color: rgb(218, 253, 253);" class="sb-topnav navbar navbar-expand navbar-whlightite">
+    <!-- Navbar Brand-->
+    <a class="navbar-brand ps-3" href="index.html"> {{(student==null)?'Wellcome FPT Poly':student.fullname}}</a>
+    <!-- Sidebar Toggle-->
+    <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!">
+      <i class="fas fa-bars"></i>
+    </button>
+    <!-- Navbar Search-->
+
+    <!-- Navbar-->
+    <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown"
+          aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+          
+          <div ng-show="student==null">
+            <li><a class="dropdown-item" href="#!login">Đăng nhập</a></li>
+            <li><a class="dropdown-item" href="#!create">Đăng ký </a></li>
+            <li>
+              <a class="dropdown-item" href="#!repass">Quên mật khẩu</a>
+            </li>
+          </div>
+          <div ng-hide="student==null">
+            <li> <a class="dropdown-item" href="#!updateaccount">Thông tin cá nhân</a></li>
+            <li> <a class="dropdown-item" href="#!showscore">Điểm thi</a></li>
+            <li> <a class="dropdown-item" href="#!changepassword">Đổi mật khẩu</a></li>
+            <li><a  class="dropdown-item" ng-click="logoff()">Đăng xuất</a></li>
+          </div>
+         
+        </ul>
+      </li>
+    </ul>
+  </nav>
+  <div id="layoutSidenav">
+    <div id="layoutSidenav_nav">
+      <nav class="sb-sidenav accordion sb-sidenav-light" id="sidenavAccordion">
+        <div class="sb-sidenav-menu">
+          <div class="nav">
+            <!-- Trang -->
+            <a class="nav-link" href="#!index">
+              <div class="sb-nav-link-icon">
+                <i class="fas fa-home"></i>
+              </div>
+              Trang chủ
+            </a>
+
+            <a class="nav-link" href="#!gioithieu">
+              <div class="sb-nav-link-icon">
+                <i class="far fa-id-card"></i>
+              </div>
+              Giới thiệu
+            </a>
+
+            <a class="nav-link" href="#!lienhe">
+              <div class="sb-nav-link-icon">
+                <i class="w-fa fas fa-phone-square-alt"></i>
+              </div>
+              Liên hệ
+            </a>
+
+            <a class="nav-link" href="#!gopy">
+              <div class="sb-nav-link-icon">
+                <i class="w-fa fas fa-comments"></i>
+              </div>
+              
+              Góp ý
+            </a>
+
+            <a class="nav-link" href="#!hoidap">
+              <div class="sb-nav-link-icon">
+                <i class="w-fa fas fa-question-circle"></i>
+              </div>
+              Hỏi đáp
+            </a>
+
+            <!-- Trang -->
+            <div class="sb-sidenav-menu-heading">Danh mục</div>
+            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts"
+              aria-expanded="false" aria-controls="collapseLayouts">
+              <div class="sb-nav-link-icon">
+                <i class="fas fa-columns"></i>
+              </div>
+              Danh mục thi
+              <div class="sb-sidenav-collapse-arrow">
+                <i class="fas fa-angle-down"></i>
+              </div>
+            </a>
+            <!-- Danh muc -->
+            <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+              <nav ng-repeat="sj in subjects" class="">
+                <!-- <a class="nav-link" href="">{{sj.Name}}</a> -->
+                <a style="font-size: 13px" href="#!viewtest/?id={{sj.Id}}&?tenMH={{sj.Name}}" class="nav-link">
+                  <img src="{{'assets/img/logos/'+sj.Logo}}" class="img-fluid rounded-circle hoverable"
+                    style="height: 15px" alt="" />
+                  {{sj.Name}}
+                </a>
+              </nav>
+            </div>
+
+          </div>
+        </div>
+        <div class="sb-sidenav-footer">
+          <div class="small">Sinh viên thực hiện</div>
+          PS11565-Phạm Quang Vũ
+        </div>
+      </nav>
+    </div>
+    <!-- manin -->
+    <!-- manin -->
+    <div id="layoutSidenav_content">
+      <main>
+        <div ng-view class="container-fluid px-4"></div>
+      </main>
+      <!-- footer -->
+      <footer class="py-4 bg-light mt-auto">
+        <div class="container-fluid px-4">
+          <div  class="d-flex align-items-center center-content-between small">
+            <div  class="text-muted ">Copyright &copy; Cao đẳng FPT Polytechnich</div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+  <script src="https://smtpjs.com/v3/smtp.js">
+  </script>
+    <!-- font-awesomeone -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"
+    crossorigin="anonymous"></script>
+  <!-- Thông báo -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.16/dist/sweetalert2.all.min.js"></script>
+  <!-- angular -->
+
+  <script src="js/app/angular.min.js"></script>
+  <script src="js/app/angular-route.js"></script>
+  <script src="js/app/angular-animate.js"></script>
+  <script src="//code.angularjs.org/1.3.15/angular.js"></script>
+  <script src="//code.angularjs.org/1.3.15/angular-route.js"></script>
+  <script src="https://cdn.firebase.com/js/client/1.0.18/firebase.js"></script>
+  <script src="https://cdn.firebase.com/libs/angularfire/0.8.0/angularfire.min.js"></script>
+  <script src="https://cdn.firebase.com/js/simple-login/1.6.2/firebase-simple-login.js"></script>
+  <script src="js/app/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    crossorigin="anonymous"></script>
+
+  <script src="js/app/scripts.js"></script>
+  <script src="js/controller/myApp.js"></script>
+<!-- controller -->
+<script src="js/controller/registerCtrl.js"></script>
+  <script src="js/controller/viewtestCtrl.js"></script>
+  <script src="js/controller/loginCtrl.js"></script>
+
+  <script src="js/controller/changepasswordCtrl.js"></script>
+  <script src="js/controller/forgotpasswordCtrl.js"></script>
+  <script src="js/controller/updateaccountCtrl.js"></script>
+  <script src="js/controller/showScore.js"></script>
+
+  <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/highlight.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+  <script>
+    AOS.init({
+      easing: "ease-out-back",
+      duration: 1000,
+    });
+  </script>
+</body>
+
+</html>

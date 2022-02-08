@@ -1,0 +1,97 @@
+<style>
+  body {
+    background-image: url(assets/img/backgr.gif);
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+</style>
+<section data-aos="fade-up" ng-controller="viewtestCtrl">
+  <div
+    class="px-5 py-4 rgba-white-strong rounded shadow "
+    style="
+      background-color: rgba(255, 255, 255, 0.822);
+      margin-top: 50px;
+      font-size: larger;
+    "
+  >
+    <div
+      class="view view-cascade gradient-card-header d-flex align-items-center justify-content-center"
+      style="
+        background-color: #0093e9;
+        background-image: linear-gradient(160deg, #0093e9 0%, #80d0c7 100%);
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+          rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+          rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+        color: white;
+      
+        height: 100px;
+        margin-top: -70px; ;
+      "
+    >
+      <h3 class="card-header-title">{{subject.Name}}</h3>
+    </div>
+
+    <div class="row mt-3">
+      <div class="col-lg-3 mb-lg-0 mb-5">
+        <img
+          src="assets/img/logos/{{subject.Logo}}"
+          alt="Sample project image"
+          class="img-fluid rounded z-depth-1"
+          style="width: 250px"
+        />
+      </div>
+      <div class="col-lg-7">
+        <div class="row mb-3">
+          <div class="col-md-1 col-2">
+            <i class="fas fa-book fa-2x cyan-text"></i>
+          </div>
+          <div class="col-md-11 col-10">
+            <h5 class="font-weight-bold mb-3">Kiến thức</h5>
+            <p class="grey-text">
+              Thí sinh đảm bảo đã ôn đầy đủ kiến thức trong quá trình học tập
+            </p>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col-md-1 col-2">
+            <i class="fas fa-clock fa-2x red-text"></i>
+          </div>
+          <div class="col-md-11 col-10">
+            <h5 class="font-weight-bold mb-3">Thời gian thi</h5>
+            <p class="grey-text">10 câu hỏi / 10 phút</p>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-md-1 col-2">
+            <i class="fas fa-exclamation-triangle fa-2x red-text"></i>
+          </div>
+          <div class="col-md-11 col-10">
+            <h5 class="font-weight-bold mb-3">Lưu ý</h5>
+            <p class="grey-text">
+              Khi hết thời gian thì hệ thống sẽ tự động đóng bài thi của bạn
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-8"></div>
+
+        <div class="col-lg-4 view overlay">
+          <div style="text-align: center" class="col-lg-12 view overlay">
+            <a ng-click="test()"
+              ><img
+                src="assets/img/start.gif"
+                alt="Sample project image"
+                class="img-fluid rounded z-depth-1"
+                style="width: 300px"
+            /></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

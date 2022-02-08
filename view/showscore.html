@@ -1,0 +1,51 @@
+<style>
+    body {
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }
+</style>
+<section data-aos="fade-up">
+    <div class="col-lg-8 m-auto">
+    <div class="card card-cascade narrower" style="background-color: rgba(255, 255, 255, 0.877);margin-top: 50px;">
+
+        <div class="container" style="width: 90%;margin-top: -50px; ">
+            <div class="view view-cascade gradient-card-header d-flex align-items-center justify-content-center" style="background-color: #0093E9;
+        background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
+        ;box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;;color: white; text-align: center; height: 100px;">
+  
+                <h3 class="card-header-title">Điểm thi : {{student.fullname}}</h3>
+
+        
+
+            </div>
+        </div>
+      
+            <div class="card-body card-body-cascade p-5" >
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">Họ và tên</th>
+                        <th scope="col">Môn học</th>
+                        <th scope="col">Điểm</th>
+          
+                      </tr>
+                    </thead>
+                    <tbody ng-repeat="show in showscore | filter: student.fullname ">
+                      <tr >
+                        <th scope="row">{{show.fullname}}</th>
+                        <td>{{show.name}}</td>
+                        <td>{{show.score}}</td>
+                      </tr>
+                 
+                    
+                    </tbody>
+                  </table>
+                
+
+            </div>
+          
+          </div>
+    </div>
+</section>

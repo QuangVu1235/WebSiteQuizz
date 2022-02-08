@@ -1,0 +1,38 @@
+<div data-aos="fade-up" ng-controller="loginCtrl" id="layoutAuthentication">
+    <div id="layoutAuthentication_content">
+        <main>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-5">
+                        <div class="card shadow-lg border-0 rounded-lg mt-5">
+                            <div class="card-header">
+                                <h3 class="text-center font-weight-light my-4">Đăng nhập</h3>
+                            </div>
+                            <div class="card-body">
+                                <form name="frmLogin" id="frmLogin">
+                                    <div class="form-floating mb-3">
+                                        <input ng-model="username"  class="form-control" id="Username" type="text"
+                                            placeholder="Nhập username" />
+                                        <label for="Username">User Name</label>
+                                    </div>
+                                    <div class="form-floating mb-3">
+                                        <input ng-model="password" class="form-control" id="inputPassword" type="password"
+                                            placeholder="Password" />
+                                        <label for="inputPassword">Password</label>
+                                    </div>
+    
+                                    <div class="" style="text-align: center;">
+                                        <button class="btn btn-primary" ng-click='login()' ng-disabled="frmLogin.$invalid" class="btn peach-gradient btn-rounded">Đăng nhập</button>
+                                        <!-- <a  ng-click="login()" class="btn btn-primary" href="">Login</a> -->
+                                    </div>
+                                </form>
+                            </div>
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+   
+</div>
